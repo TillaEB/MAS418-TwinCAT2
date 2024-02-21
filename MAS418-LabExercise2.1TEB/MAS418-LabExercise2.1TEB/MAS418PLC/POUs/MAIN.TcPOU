@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.12">
+  <POU Name="MAIN" Id="{a0431b7a-35bf-4913-a95a-838fe599a7d8}" SpecialFunc="None">
+    <Declaration><![CDATA[PROGRAM MAIN
+VAR
+	bEnable : BOOL;
+	bStart : BOOL;
+	nInt : INT := -32768;
+	nUint : UINT := 65535;
+	fReal : REAL := 255.255;
+	sPowerstatus : STRING := 'Power Off';
+	
+    nFloatConversion : INT;
+	fFloatConversion : LREAL;
+	nHeltall : INT:= 100;
+	fKomma : LREAL := 100.5;
+	
+END_VAR
+]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[bEnable := bStart;
+
+nFloatConversion := nHeltall + LREAL_TO_INT(fKomma);
+
+]]></ST>
+    </Implementation>
+  </POU>
+</TcPlcObject>
